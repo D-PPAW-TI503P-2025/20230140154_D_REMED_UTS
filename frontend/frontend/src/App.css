@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+  --wood-dark: #1e1a17;
+  --wood-medium: #3d2f26;
+  --accent-gold: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.3);
+  --paper-cream: #fdfcf0;
+  --bg-sand: #f4f1e1;
+  --royal-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
+  --btn-gradient-admin: linear-gradient(135deg, #1e1a17 0%, #3d2f26 100%);
+  --btn-gradient-user: linear-gradient(135deg, #d4af37 0%, #b08d48 100%);
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-sand);
+  /* Tekstur background titik emas halus */
+  background-image: radial-gradient(var(--accent-gold) 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+  min-height: 100vh;
+  color: var(--wood-dark);
+}
+
+.container-pro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* Jarak antar bagian (Form -> Log -> Books) */
+}
+
+/* --- NAV-BAR IMPERIAL --- */
+.nav-pro {
+  background: rgba(30, 26, 23, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--accent-gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  border-radius: 100px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.logo-icon {
+  background: var(--accent-gold);
+  color: var(--wood-dark);
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+/* --- ROLE SWITCHER --- */
+.role-switcher {
+  background: rgba(255,255,255,0.1);
+  padding: 5px;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+}
+
+.role-btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background: transparent;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.role-btn.active {
+  background: var(--accent-gold);
+  color: var(--wood-dark);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+/* --- CENTRAL PANEL FORM --- */
+.central-control-panel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-wrapper-centric {
+  width: 100%;
+  max-width: 650px;
+}
+
+.form-section {
+  padding: 50px;
+  border-radius: 50px;
+  background: white;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--royal-shadow);
+}
+
+/* Garis emas di atas form */
+.form-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 8px;
+  background: var(--btn-gradient-user);
+}
+
+.form-section h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--wood-dark);
+  font-size: 1.8rem;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* --- INPUTS --- */
+input {
+  width: 100%;
+  padding: 18px 25px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  border: 2px solid #EAE5D5;
+  background: #FDFCF0;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: white;
+  box-shadow: 0 0 0 5px var(--gold-glow);
+}
+
+/* --- THE BUTTONS (3D CLICK EFFECT) --- */
+.btn-action {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 0px #8b6d2d; /* Shadow 3D */
+  transition: 0.2s;
+}
+
+.btn-admin { background: var(--btn-gradient-admin); color: white; }
+.btn-user { background: var(--btn-gradient-user); color: var(--wood-dark); }
+
+.btn-detect { 
+  background: white; 
+  color: var(--wood-dark); 
+  border: 2px dashed var(--accent-gold); 
+  box-shadow: none;
+  margin-bottom: 25px;
+}
+
+.btn-action:hover {
+  filter: brightness(1.1);
+  transform: translateY(2px);
+  box-shadow: 0 6px 0px #8b6d2d;
+}
+
+.btn-action:active {
+  transform: translateY(8px);
+  box-shadow: 0 0px 0px #8b6d2d;
+}
+
+/* --- INVENTORY & CARDS --- */
+.archive-collection-section {
+  width: 100%;
+}
+
+.inventory-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.inventory-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  letter-spacing: -2px;
+  margin: 10px 0;
+  background: linear-gradient(to right, var(--wood-dark), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.refresh-btn {
+  background: var(--wood-dark) !important;
+  color: var(--accent-gold) !important;
+  width: 65px;
+  height: 65px;
+  border-radius: 20px;
+  border: 2px solid var(--accent-gold);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.refresh-btn:hover {
+  transform: rotate(180deg) scale(1.1);
+  box-shadow: 0 0 25px var(--gold-glow);
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+/* Masterpiece Book Card */
+.book-card {
+  padding: 50px 35px !important;
+  background: linear-gradient(160deg, #ffffff 0%, #fdfcf0 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border-radius: 40px !important;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  padding: 2px;
+  background: linear-gradient(to bottom right, var(--accent-gold), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+}
+
+.book-card:hover {
+  transform: translateY(-20px) scale(1.03) !important;
+  border-color: var(--accent-gold) !important;
+  box-shadow: var(--royal-shadow) !important;
+}
+
+.card-bg-icon {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  opacity: 0.05;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.badge-stock {
+  background: var(--wood-dark);
+  color: var(--accent-gold);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  border: 1px solid var(--accent-gold);
+}
+
+.empty-state {
+  padding: 100px;
+  text-align: center;
+  grid-column: 1 / -1;
+  color: var(--accent-gold);
+}
+/* Container pembungkus utama */
+/* --- SEARCH SECTION --- */
+.search-container {
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: block !important; 
+}
+
+.search-icon-inside {
+  position: absolute !important;
+  left: 30px !important; 
+  top: 38% !important; 
+  transform: translateY(-50%) !important; 
+  color: var(--accent-gold);
+  pointer-events: none;
+  z-index: 20 !important; /* Memastikan ikon di atas input */
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.input-search {
+  width: 100%;
+  height: 60px !important; /* Sedikit lebih tinggi agar lebih mewah */
+  padding: 0 30px 0 65px !important; /* Jarak teks dari ikon ditingkatkan */
+  border-radius: 100px !important;
+  border: 2px solid var(--accent-gold) !important;
+  background: white !important;
+  font-family: 'Marcellus', serif;
+  font-size: 1.1rem;
+  color: var(--wood-dark);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s ease;
+}
+
+.input-search:focus {
+  outline: none;
+  background: #fdfcf0 !important;
+  border-color: var(--wood-dark) !important;
+  box-shadow: 0 0 0 6px var(--gold-glow) !important;
+}
+
+.input-search::placeholder {
+  color: #8C7B6E;
+  opacity: 0.6;
+}
